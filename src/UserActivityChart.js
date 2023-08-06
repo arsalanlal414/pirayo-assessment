@@ -1,5 +1,5 @@
 // UserActivityChart.js
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from './UserContext';
 import {
   LineChart,
@@ -14,6 +14,7 @@ import {
 const UserActivityChart = ({ timeRange }) => {
   const { users } = useContext(UserContext);
 
+  
   const generateMockUserActivityData = (range) => {
     const currentDate = new Date();
     const mockData = [];
@@ -24,28 +25,32 @@ const UserActivityChart = ({ timeRange }) => {
     } else if (range === 'daily') {
       daysCount = 1;
     }
-
+    
     for (let i = 0; i < daysCount; i++) {
-      const date = new Date(currentDate);
-      date.setDate(currentDate.getDate() - i);
-      const formattedDate = date.toISOString().slice(0, 10);
-      const newUsers = users.filter((user) => user.registerDate === formattedDate).length;
-      mockData.push({
-        date: formattedDate,
-        newUsers,
-      });
+        const date = new Date(currentDate);
+        date.setDate(currentDate.getDate() - i);
+        const formattedDate = date.toISOString().slice(0, 10);
+        const newUsers = users.filter((user) => user.registerDate === formattedDate).length;
+        mockData.push({
+            date: formattedDate,
+            newUsers,
+        });
     }
-
+    
     return mockData.reverse();
-  };
+};
 
-  const [chartData, setChartData] = useState(generateMockUserActivityData(timeRange || 'weekly'));
+const [chartData, setChartData] = useState(generateMockUserActivityData(timeRange || 'weekly'));
 
-  const handleTimeRangeChange = (range) => {
+const handleTimeRangeChange = (range) => {
     setChartData(generateMockUserActivityData(range));
-  };
+};
 
-  return (
+useEffect(()=>{
+  setChartData(generateMockUserActivityData(timeRange || 'weekly'));
+},[users])
+
+return (
     <div className='user-activity-chart'>
       <h2>User Activity Visualization</h2>
       <div>

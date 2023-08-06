@@ -1,10 +1,10 @@
 // App.js
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import UserList from './UserList';
 import AddUser from './AddUser';
-import './styles.scss'; // Import the SCSS file for styling
+import UserActivityChart from './UserActivityChart';
+import './styles.scss';
 
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
         <Route path="/" element={<UserList />} />
         <Route path="/add-user" element={<AddUser />} />
       </Routes>
+      
     </Router>
   );
 };

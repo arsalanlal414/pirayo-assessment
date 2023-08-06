@@ -1,144 +1,161 @@
 // styles.scss
-
-// Define variables for colors and other common styles
-$primary-color: #007bff;
-$danger-color: #dc3545;
-
-// Global styles
 body {
-  font-family: Arial, sans-serif;
-}
-
-// Navigation menu
-nav {
-  background-color: $primary-color;
-  padding: 10px;
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    li {
-      display: inline-block;
-      margin-right: 20px;
-      a {
-        color: #fff;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
+    font-family: Arial, sans-serif;
+  }
+  
+  nav {
+    background-color: #007bff;
+    padding: 10px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+          color: #fff;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
   }
-}
-
-// User List page
-table {
-  width: 100%;
-  border-collapse: collapse;
-  th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-  }
-  th {
-    background-color: #f0f0f0;
-  }
-  tr {
-    &:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  }
-  button {
-    margin-right: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    background-color: $danger-color;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    &:hover {
-      background-color: darken($danger-color, 10%);
-    }
-  }
-}
-
-// Add User page
-form {
-  max-width: 400px;
-  margin: 0 auto;
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  input {
+  
+  table {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  button {
-    padding: 8px 16px;
-    background-color: $primary-color;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
+    border-collapse: collapse;
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    tr {
+      &:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    }
+    button {
+      margin-right: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: #dc3545;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      &:hover {
+        background-color: #c82333;
+      }
+    }
   }
   
-  .modal-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  form {
     max-width: 400px;
-    width: 100%;
-    position: relative;
-  
-    h2 {
-      margin-top: 0;
+    margin: 0 auto;
+    label {
+      display: block;
+      margin-bottom: 5px;
     }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
   
-    form {
-      label {
-        display: block;
-        margin-bottom: 5px;
+  .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+    
+    .modal-content {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+    
+      h2 {
+        margin-top: 0;
       }
-      input {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+    
+      form {
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+        input {
+          width: 100%;
+          padding: 8px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        .modal-buttons {
+          display: flex;
+          justify-content: flex-end;
+          button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          }
+          .cancel-button {
+            background-color: #dc3545;
+          }
+        }
       }
-      .modal-buttons {
+    }
+
+    .user-activity-chart {
         display: flex;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
+        margin: 30px;
+        width: 100vw;
+        h2 {
+          margin-bottom: 10px;
+        }
+      
         button {
+          margin: 10px;
           padding: 8px 16px;
-          margin-left: 10px;
-          background-color: $primary-color;
+          background-color: #007bff;
           color: #fff;
           border: none;
           border-radius: 4px;
           cursor: pointer;
+          font-size: 14px;
         }
-        .cancel-button {
-          background-color: $danger-color;
+      
+        .button-active {
+          background-color: #0056b3;
         }
       }
-    }
-  }

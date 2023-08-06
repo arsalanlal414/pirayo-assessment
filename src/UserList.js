@@ -1,13 +1,15 @@
+// UserList.js
 import React, { useContext, useState } from 'react';
 import { UserContext } from './UserContext';
 import EditUserModal from './EditUserModal';
+import UserActivityChart from './UserActivityChart';
 
 const UserList = () => {
   const { users, deleteUser } = useContext(UserContext);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const handleEdit = (user) => {
-    setSelectedUser(user); // Corrected from setSelectedUser(user.id) to setSelectedUser(user)
+    setSelectedUser(user);
   };
 
   const handleModalClose = () => {
@@ -34,15 +36,17 @@ const UserList = () => {
               <td>{user.role}</td>
               <td>
                 <button onClick={() => deleteUser(user.id)}>Delete</button>
-                <button onClick={() => handleEdit(user)}>Edit</button> {/* Corrected from setSelectedUser(user.id) to handleEdit(user) */}
+                <button onClick={() => handleEdit(user)}>Edit</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <UserActivityChart/>
       {selectedUser && (
         <EditUserModal user={selectedUser} onClose={handleModalClose} />
       )}
+
     </div>
   );
 };

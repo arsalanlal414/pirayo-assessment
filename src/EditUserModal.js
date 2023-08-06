@@ -1,5 +1,4 @@
 // EditUserModal.js
-
 import React, { useState, useContext } from 'react';
 import { UserContext } from './UserContext';
 
